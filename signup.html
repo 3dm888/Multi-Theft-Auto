@@ -4,127 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إنشاء حساب</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background: #003366;
-            color: #FFFFFF;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            padding: 0;
+            background: #f0f0f0; /* لون خلفية خفيف */
+            color: #333; /* لون نصوص داكن */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
         }
-        .signup-container {
-            background: #004080;
+        .form-container {
+            background: #ffffff; /* خلفية بيضاء */
             padding: 20px;
             border-radius: 10px;
-            width: 300px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .signup-container h2 {
-            margin-bottom: 20px;
-            color: #FFFFFF;
+            width: 100%;
+            max-width: 400px;
             text-align: center;
         }
-        .signup-container input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #003366;
-            background: #002244;
-            color: #FFFFFF;
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
         }
-        .signup-container button {
-            background: #004080;
-            color: #FFFFFF;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
+        .form-container input {
             width: 100%;
-            transition: background 0.3s ease;
-        }
-        .signup-container button:hover {
-            background: #003366;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <div class="signup-container">
-        <h2>إنشاء حساب</h2>
-        <!-- نموذج تسجيل الدخول -->
-        <div id="loginSection">
-            <form id="loginForm">
-                <input type="text" id="contact" placeholder="رقم الهاتف أو البريد الإلكتروني" required>
-                <button type="submit">إرسال كود التحقق</button>
-            </form>
-        </div>
-        <!-- نموذج إدخال كود التحقق -->
-        <div id="verifySection" class="hidden">
-            <form id="verifyForm">
-                <input type="text" id="verificationCode" placeholder="أدخل كود التحقق" required>
-                <button type="submit">تأكيد</button>
-            </form>
-        </div>
-    </div>
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const contact = document.getElementById('contact').value;
-            
-            fetch('/send-verification-code', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ contact })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // إخفاء نموذج تسجيل الدخول وإظهار نموذج إدخال كود التحقق
-                    document.getElementById('loginSection').classList.add('hidden');
-                    document.getElementById('verifySection').classList.remove('hidden');
-                } else {
-                    alert('حدث خطأ أثناء إرسال كود التحقق.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-
-        document.getElementById('verifyForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const code = document.getElementById('verificationCode').value;
-            const contact = document.getElementById('contact').value;
-
-            fetch('/verify-code', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ code, contact })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('تم التحقق بنجاح! يمكنك الآن تسجيل الدخول.');
-                    window.location.href = 'login.html'; // انتقل إلى صفحة تسجيل الدخول
-                } else {
-                    alert('كود التحقق غير صحيح.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    </script>
-</body>
-</html>
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 
