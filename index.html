@@ -3,87 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع متكامل</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <title>موقع شامل</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #003366, #004080); /* تدرج أزرق */
-            color: #FFFFFF; /* أبيض ناصع */
+            background: #f0f0f0;
+            color: #333;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
         .header-menu {
-            background-color: rgba(0, 51, 102, 0.8); /* أزرق نيلي داكن مع شفافية */
+            background-color: #004080; /* أزرق ملكي */
+            color: #fff;
             padding: 15px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .header-menu .logo {
             font-size: 1.5em;
-            color: #FFFFFF; /* أبيض ناصع */
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
+            margin-right: 20px;
         }
         .header-menu nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         .header-menu nav ul li {
-            margin: 10px 0;
+            margin: 0 10px;
         }
         .header-menu nav ul li a {
             text-decoration: none;
-            color: #FFFFFF; /* أبيض ناصع */
-            font-size: 1.2em;
-            padding: 10px 20px;
-            display: block;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            border-radius: 5px;
+            color: #fff;
+            font-size: 1.1em;
+            transition: color 0.3s;
         }
         .header-menu nav ul li a:hover {
-            color: #003366; /* أزرق نيلي داكن */
-            background-color: #C0C0C0; /* فضي لامع عند التمرير */
+            color: #ddd;
         }
         .section {
             padding: 40px 20px;
             text-align: center;
-            background: #002244; /* لون أغمق من الأزرق النيلي */
         }
         .section h2 {
-            color: #FFFFFF; /* أبيض ناصع */
+            color: #004080; /* أزرق ملكي */
             font-size: 2em;
             margin-bottom: 20px;
-            font-weight: bold;
         }
-        .services-container, .form-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 90%;
-            margin: 0 auto;
-        }
-        .service-item, .form-container {
-            background: #003366;
-            border-radius: 10px;
-            padding: 20px;
-            width: 100%;
-            max-width: 400px;
+        .section p {
+            font-size: 1.1em;
             margin-bottom: 20px;
-            text-align: center;
-            color: #FFFFFF;
+        }
+        .form-container, .service-item {
+            background: #fff;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 500px;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-container button {
+            background-color: #004080; /* أزرق ملكي */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        .form-container button:hover {
+            background-color: #003366; /* أزرق داكن */
         }
         .service-item img {
             width: 80px;
@@ -101,39 +103,17 @@
         }
         .service-item button {
             background-color: #004080; /* أزرق ملكي */
-            color: #FFFFFF; /* أبيض ناصع */
+            color: #fff;
             border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 5px;
+            padding: 10px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-size: 1em;
+            transition: background-color 0.3s;
         }
         .service-item button:hover {
-            background-color: #003366; /* أزرق نيلي داكن */
+            background-color: #003366; /* أزرق داكن */
         }
-        .form-container input, .form-container textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .form-container button {
-            background-color: #004080; /* أزرق ملكي */
-            color: #FFFFFF; /* أبيض ناصع */
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .form-container button:hover {
-            background-color: #003366; /* أزرق نيلي داكن */
-        }
-
         @media (max-width: 768px) {
             .header-menu .logo {
                 font-size: 1.2em;
@@ -144,79 +124,73 @@
             .section h2 {
                 font-size: 1.5em;
             }
-            .service-item, .form-container {
-                max-width: 300px;
+            .form-container, .service-item {
+                max-width: 90%;
             }
         }
-
         @media (max-width: 480px) {
             .header-menu .logo {
                 font-size: 1em;
             }
             .header-menu nav ul li a {
                 font-size: 0.9em;
-                padding: 8px 16px;
             }
             .section h2 {
                 font-size: 1.2em;
             }
-            .service-item, .form-container {
+            .form-container, .service-item {
                 max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header-menu">
+    <header class="header-menu">
         <div class="logo">شعار الموقع</div>
         <nav>
             <ul>
                 <li><a href="#home">الصفحة الرئيسية</a></li>
                 <li><a href="#about">من أنا</a></li>
-                <li><a href="#services">خدماتي</a></li>
+                <li><a href="#services">إدارة الخدمات</a></li>
                 <li><a href="#signup">إنشاء حساب</a></li>
             </ul>
         </nav>
-    </div>
+    </header>
 
     <section id="home" class="section">
-        <h2>مرحبا بكم في موقعنا</h2>
-        <p>نحن نقدم مجموعة متنوعة من الخدمات. تصفح موقعنا لمعرفة المزيد.</p>
+        <h2>مرحبا بكم في متجرنا</h2>
+        <p>نحن نقدم مجموعة متنوعة من المنتجات والخدمات. تصفح موقعنا لمعرفة المزيد.</p>
     </section>
 
     <section id="about" class="section">
         <h2>من أنا</h2>
         <div class="form-container">
             <h3>معلومات شخصية</h3>
-            <p>هنا يمكنك تقديم معلومات عن نفسك أو عن شركتك.</p>
             <input type="text" placeholder="اسمك الكامل">
             <input type="email" placeholder="بريدك الإلكتروني">
             <textarea placeholder="اكتب نبذة قصيرة عن نفسك"></textarea>
+            <button>تحديث المعلومات</button>
         </div>
     </section>
 
     <section id="services" class="section">
         <h2>إدارة الخدمات</h2>
-        <div class="services-container">
-            <!-- نموذج إضافة خدمة -->
-            <div class="form-container">
-                <h3>إضافة خدمة جديدة</h3>
-                <form id="add-service-form">
-                    <input type="text" id="service-name" placeholder="اسم الخدمة" required>
-                    <textarea id="service-description" placeholder="وصف الخدمة" rows="4" required></textarea>
-                    <input type="file" id="service-image" accept="image/*" required>
-                    <button type="submit">إضافة الخدمة</button>
-                </form>
-            </div>
+        <div class="form-container">
+            <h3>إضافة خدمة جديدة</h3>
+            <form id="add-service-form">
+                <input type="text" id="service-name" placeholder="اسم الخدمة" required>
+                <textarea id="service-description" placeholder="وصف الخدمة" rows="4" required></textarea>
+                <input type="file" id="service-image" accept="image/*" required>
+                <button type="submit">إضافة الخدمة</button>
+            </form>
+        </div>
 
-            <!-- خدمات موجودة -->
-            <div class="service-item">
-                <img src="path/to/service-image.jpg" alt="خدمة">
-                <h3>اسم الخدمة</h3>
-                <p>وصف الخدمة</p>
-                <button>تعديل</button>
-                <button>حذف</button>
-            </div>
+        <div class="service-item">
+            <img src="path/to/service-image.jpg" alt="خدمة">
+            <h3>اسم الخدمة</h3>
+            <p>وصف الخدمة</p>
+            <button>تعديل</button>
+            <button>حذف</button>
         </div>
     </section>
 
@@ -233,6 +207,5 @@
             </form>
         </div>
     </section>
-
-    <script>
-        // مثال على كيفية التعامل مع نموذج
+</body>
+</html>
