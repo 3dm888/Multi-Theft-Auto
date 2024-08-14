@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من أنا</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #003366, #004080); /* تدرج أزرق */
+            color: #FFFFFF; /* أبيض ناصع */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header-menu {
+            background-color: rgba(0, 51, 102, 0.8); /* أزرق نيلي داكن مع شفافية */
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .header-menu .logo {
+            font-size: 1.5em;
+            color: #FFFFFF; /* أبيض ناصع */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .header-menu nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .header-menu nav ul li {
+            margin: 0 15px;
+        }
+        .header-menu nav ul li a {
+            text-decoration: none;
+            color: #FFFFFF; /* أبيض ناصع */
+            font-size: 1.2em;
+            padding: 10px 20px;
+            display: block;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-menu nav ul li a:hover {
+            color: #003366; /* أزرق نيلي داكن */
+            background-color: #C0C0C0; /* فضي لامع عند التمرير */
+        }
+        .header-menu nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: transform 0.5s ease;
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+        }
+        .header-menu nav ul li a:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .about {
+            padding: 60px 20px;
+            text-align: center;
+            background: #002244; /* لون أغمق من الأزرق النيلي */
+        }
+        .about h2 {
+            color: #FFFFFF; /* أبيض ناصع */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .about .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .about .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .about .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about .profile-image:hover {
+            transform: scale(1.1);
+        }
+        .about .profile-info {
+            color: #E0E0E0; /* لون رمادي فاتح للنصوص */
+        }
+        .about .profile-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .about .contact-info {
+            margin-top: 30px;
+        }
+        .about .contact-info a {
+            color: #FFFFFF; /* أبيض ناصع */
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 10px;
+            display: inline-block;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .about .contact-info a:hover {
+            color: #003366; /* أزرق نيلي داكن */
+            transform: scale(1.1);
+        }
+        .about .contact-info a img {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        .about .discord-invite {
+            margin-top: 20px;
+        }
+        .about .discord-invite a {
+            color: #FFFFFF; /* أبيض ناصع */
+            text-decoration: none;
+            font-size: 1.2em;
+            background-color: #7289DA; /* لون ديسكورد */
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .about .discord-invite a:hover {
+            background-color: #5B6EAE; /* لون أغمق عند التمرير */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-menu">
+        <div class="logo">شعار الموقع</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الصفحة الرئيسية</a></li>
+                <li><a href="about.html">من أنا</a></li>
+                <li><a href="services.html">خدماتي</a></li>
+                 <li><a href="admins.html">المسؤولين</a></li>
+                  <li><a href="signup.html">انشاء حساب</a></li>
+                  
+            </ul>
+        </nav>
+    </div>
+
+    <section class="about">
+        <h2>من أنا</h2>
+        <div class="profile-container">
+            <div class="profile-image">
+                <img src="path/to/profile-image.jpg" alt="الصورة الشخصية">
+            </div>
+            <div class="profile-info">
+                <p>مرحبًا، أنا [اسمك]. أعمل في مجال [مجالك] ولدي شغف كبير بـ [مجال اهتمامك]. أتمتع بخبرة تزيد عن [عدد] سنوات في هذا المجال، وأسعى دائمًا لتقديم أفضل خدمة ممكنة لعملائي.</p>
+                <p>أنا هنا لمساعدتك في تحقيق أهدافك وتقديم استشارات وخدمات مخصصة بناءً على احتياجاتك الخاصة.</p>
+            </div>
+            <div class="contact-info">
+                <a href="https://wa.me/yourwhatsappnumber" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="واتساب"> واتساب
+                </a>
+                <a href="https://instagram.com/yourinstagram" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="إنستجرام"> إنستجرام
+                </a>
+                <a href="https://discord.gg/yourdiscordinvite" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" alt="ديسكورد"> ديسكورد
+                </a>
+            </div>
+            <div class="discord-invite">
+                <a href="https://discord.gg/yourdiscordinvite" target="_blank">انضم إلى خادم ديسكورد الخاص بنا</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
