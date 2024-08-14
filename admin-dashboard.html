@@ -3,96 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>إدارة الخدمات</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #003366;
-            color: #FFFFFF;
-        }
-        .dashboard-header {
-            background: #004080;
-            padding: 20px;
+            background: linear-gradient(to right, #003366, #004080); /* تدرج أزرق */
+            color: #FFFFFF; /* أبيض ناصع */
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header-menu {
+            background-color: rgba(0, 51, 102, 0.8); /* أزرق نيلي داكن مع شفافية */
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .dashboard-header .logo {
+        .header-menu .logo {
             font-size: 1.5em;
-            color: #FFFFFF;
+            color: #FFFFFF; /* أبيض ناصع */
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-align: center;
         }
-        .dashboard-header a {
-            color: #FFFFFF;
+        .header-menu nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-menu nav ul li {
+            margin: 10px 0;
+        }
+        .header-menu nav ul li a {
             text-decoration: none;
+            color: #FFFFFF; /* أبيض ناصع */
             font-size: 1.2em;
-            padding: 10px;
+            padding: 10px 20px;
+            display: block;
+            transition: color 0.3s ease, background-color 0.3s ease;
             border-radius: 5px;
-            transition: background 0.3s ease;
         }
-        .dashboard-header a:hover {
-            background: #003366;
+        .header-menu nav ul li a:hover {
+            color: #003366; /* أزرق نيلي داكن */
+            background-color: #C0C0C0; /* فضي لامع عند التمرير */
         }
-        .container {
-            padding: 20px;
+        .services {
+            padding: 40px 20px;
+            text-align: center;
+            background: #002244; /* لون أغمق من الأزرق النيلي */
         }
-        .add-service-form {
-            background: #004080;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: 20px auto;
-            color: #FFFFFF;
-            text-align: left;
-        }
-        .add-service-form h3 {
-            margin-bottom: 20px;
+        .services h2 {
+            color: #FFFFFF; /* أبيض ناصع */
             font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
-        .add-service-form input[type="text"], .add-service-form textarea, .add-service-form input[type="file"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #003366;
-            background: #002244;
-            color: #FFFFFF;
+        .services-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 90%;
+            margin: 0 auto;
         }
-        .add-service-form button {
-            background: #004080;
+        .service-item {
+            background: #003366;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+            text-align: center;
             color: #FFFFFF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .service-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .service-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .service-item p {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .service-item button {
+            background-color: #004080; /* أزرق ملكي */
+            color: #FFFFFF; /* أبيض ناصع */
             border: none;
             padding: 10px 20px;
+            font-size: 1em;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background-color 0.3s ease;
         }
-        .add-service-form button:hover {
-            background: #003366;
+        .service-item button:hover {
+            background-color: #003366; /* أزرق نيلي داكن */
+        }
+
+        @media (max-width: 768px) {
+            .header-menu .logo {
+                font-size: 1.2em;
+            }
+            .header-menu nav ul li a {
+                font-size: 1em;
+            }
+            .services h2 {
+                font-size: 1.5em;
+            }
+            .service-item {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-menu .logo {
+                font-size: 1em;
+            }
+            .header-menu nav ul li a {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+            .services h2 {
+                font-size: 1.2em;
+            }
+            .service-item {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="dashboard-header">
-        <div class="logo">لوحة التحكم</div>
-        <a href="index.html">العودة إلى الموقع</a>
+    <div class="header-menu">
+        <div class="logo">شعار الموقع</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الصفحة الرئيسية</a></li>
+                <li><a href="about.html">من أنا</a></li>
+                <li><a href="services.html">خدماتي</a></li>
+            </ul>
+        </nav>
     </div>
-    <div class="container">
-        <div class="add-service-form">
-            <h3>إضافة خدمة جديدة</h3>
-            <form action="services.html" method="POST" enctype="multipart/form-data">
-                <input type="text" name="serviceTitle" placeholder="عنوان الخدمة" required>
-                <textarea name="serviceDescription" placeholder="وصف الخدمة" rows="5" required></textarea>
-                <input type="file" name="serviceImage" accept="image/*" required>
-                <button type="submit">إضافة الخدمة</button>
-            </form>
+
+    <section class="services">
+        <h2>إدارة الخدمات</h2>
+        <div class="services-container">
+            <!-- نموذج إضافة خدمة -->
+            <div class="service-item">
+                <h3>إضافة خدمة جديدة</h3>
+                <form id="add-service-form">
+                    <input type="text" id="service-name" placeholder="اسم الخدمة" required>
+                    <textarea id="service-description" placeholder="وصف الخدمة" rows="4" required></textarea>
+                    <input type="file" id="service-image" accept="image/*" required>
+                    <button type="submit">إضافة الخدمة</button>
+                </form>
+            </div>
+
+            <!-- خدمات موجودة -->
+            <div class="service-item">
+                <img src="path/to/service-image.jpg" alt="خدمة">
+                <h3>اسم الخدمة</h3>
+                <p>وصف الخدمة</p>
+                <button>تعديل</button>
+                <button>حذف</button>
+            </div>
         </div>
-    </div>
+    </section>
+    <script>
+        // مثال على كيفية التعامل مع نموذج إضافة خدمة
+        document.getElementById('add-service-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('تم إضافة الخدمة بنجاح!');
+            // هنا يمكنك إضافة الكود الذي يتعامل مع البيانات المدخلة وإرسالها إلى الخادم
+        });
+    </script>
 </body>
 </html>
