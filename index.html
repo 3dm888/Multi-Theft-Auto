@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع شامل</title>
+    <title>متجر إلكتروني</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f0f0f0;
+            background: #f4f4f4;
             color: #333;
             display: flex;
             flex-direction: column;
@@ -55,11 +55,7 @@
             font-size: 2em;
             margin-bottom: 20px;
         }
-        .section p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-        .form-container, .service-item {
+        .product-item, .cart-item, .form-container {
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -67,52 +63,38 @@
             padding: 20px;
             max-width: 500px;
         }
+        .product-item img, .cart-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-item h3, .cart-item h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .product-item p, .cart-item p {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .product-item button, .cart-item button, .form-container button {
+            background-color: #004080; /* أزرق ملكي */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .product-item button:hover, .cart-item button:hover, .form-container button:hover {
+            background-color: #003366; /* أزرق داكن */
+        }
         .form-container input, .form-container textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
-        }
-        .form-container button {
-            background-color: #004080; /* أزرق ملكي */
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: background-color 0.3s;
-        }
-        .form-container button:hover {
-            background-color: #003366; /* أزرق داكن */
-        }
-        .service-item img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        .service-item h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        .service-item p {
-            font-size: 1em;
-            margin-bottom: 10px;
-        }
-        .service-item button {
-            background-color: #004080; /* أزرق ملكي */
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s;
-        }
-        .service-item button:hover {
-            background-color: #003366; /* أزرق داكن */
         }
         @media (max-width: 768px) {
             .header-menu .logo {
@@ -124,7 +106,7 @@
             .section h2 {
                 font-size: 1.5em;
             }
-            .form-container, .service-item {
+            .product-item, .cart-item, .form-container {
                 max-width: 90%;
             }
         }
@@ -138,7 +120,7 @@
             .section h2 {
                 font-size: 1.2em;
             }
-            .form-container, .service-item {
+            .product-item, .cart-item, .form-container {
                 max-width: 100%;
             }
         }
@@ -146,64 +128,88 @@
 </head>
 <body>
     <header class="header-menu">
-        <div class="logo">شعار الموقع</div>
+        <div class="logo">شعار المتجر</div>
         <nav>
             <ul>
                 <li><a href="#home">الصفحة الرئيسية</a></li>
-                <li><a href="#about">من أنا</a></li>
-                <li><a href="#services">إدارة الخدمات</a></li>
+                <li><a href="#products">المنتجات</a></li>
+                <li><a href="#cart">سلة التسوق</a></li>
+                <li><a href="#login">تسجيل الدخول</a></li>
                 <li><a href="#signup">إنشاء حساب</a></li>
+                <li><a href="#admin">إدارة المنتجات</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="section">
-        <h2>مرحبا بكم في متجرنا</h2>
-        <p>نحن نقدم مجموعة متنوعة من المنتجات والخدمات. تصفح موقعنا لمعرفة المزيد.</p>
-    </section>
-
-    <section id="about" class="section">
-        <h2>من أنا</h2>
-        <div class="form-container">
-            <h3>معلومات شخصية</h3>
-            <input type="text" placeholder="اسمك الكامل">
-            <input type="email" placeholder="بريدك الإلكتروني">
-            <textarea placeholder="اكتب نبذة قصيرة عن نفسك"></textarea>
-            <button>تحديث المعلومات</button>
+        <div class="hero">
+            <h1>مرحباً بكم في متجرنا</h1>
+            <p>استمتع بتجربة تسوق رائعة مع مجموعة واسعة من المنتجات.</p>
         </div>
     </section>
 
-    <section id="services" class="section">
-        <h2>إدارة الخدمات</h2>
+    <section id="products" class="section">
+        <h2>المنتجات</h2>
+        <div class="product-item">
+            <img src="path/to/product1.jpg" alt="منتج 1">
+            <h3>اسم المنتج 1</h3>
+            <p>وصف المنتج 1</p>
+            <button>أضف إلى السلة</button>
+        </div>
+        <div class="product-item">
+            <img src="path/to/product2.jpg" alt="منتج 2">
+            <h3>اسم المنتج 2</h3>
+            <p>وصف المنتج 2</p>
+            <button>أضف إلى السلة</button>
+        </div>
+    </section>
+
+    <section id="cart" class="section">
+        <h2>سلة التسوق</h2>
+        <div class="cart-item">
+            <img src="path/to/product1.jpg" alt="منتج في السلة">
+            <h3>اسم المنتج 1</h3>
+            <p>وصف المنتج 1</p>
+            <button>إزالة</button>
+        </div>
+        <button>أكمل عملية الشراء</button>
+    </section>
+
+    <section id="login" class="section">
+        <h2>تسجيل الدخول</h2>
         <div class="form-container">
-            <h3>إضافة خدمة جديدة</h3>
-            <form id="add-service-form">
-                <input type="text" id="service-name" placeholder="اسم الخدمة" required>
-                <textarea id="service-description" placeholder="وصف الخدمة" rows="4" required></textarea>
-                <input type="file" id="service-image" accept="image/*" required>
-                <button type="submit">إضافة الخدمة</button>
+            <h3>تسجيل الدخول</h3>
+            <form>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <input type="password" placeholder="كلمة المرور" required>
+                <button type="submit">تسجيل الدخول</button>
             </form>
-        </div>
-
-        <div class="service-item">
-            <img src="path/to/service-image.jpg" alt="خدمة">
-            <h3>اسم الخدمة</h3>
-            <p>وصف الخدمة</p>
-            <button>تعديل</button>
-            <button>حذف</button>
         </div>
     </section>
 
     <section id="signup" class="section">
         <h2>إنشاء حساب</h2>
         <div class="form-container">
-            <h3>نموذج إنشاء حساب</h3>
-            <form id="signup-form">
-                <input type="text" id="username" placeholder="اسم المستخدم" required>
-                <input type="email" id="email" placeholder="البريد الإلكتروني" required>
-                <input type="password" id="password" placeholder="كلمة المرور" required>
-                <input type="password" id="confirm-password" placeholder="تأكيد كلمة المرور" required>
+            <h3>إنشاء حساب جديد</h3>
+            <form>
+                <input type="text" placeholder="اسم المستخدم" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <input type="password" placeholder="كلمة المرور" required>
+                <input type="password" placeholder="تأكيد كلمة المرور" required>
                 <button type="submit">إنشاء الحساب</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="admin" class="section">
+        <h2>إدارة المنتجات</h2>
+        <div class="form-container">
+            <h3>إضافة منتج جديد</h3>
+            <form>
+                <input type="text" placeholder="اسم المنتج" required>
+                <textarea placeholder="وصف المنتج" rows="4" required></textarea>
+                <input type="file" accept="image/*" required>
+                <button type="submit">إضافة المنتج</button>
             </form>
         </div>
     </section>
